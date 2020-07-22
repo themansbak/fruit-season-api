@@ -15,6 +15,11 @@ Mark:
     - SQL or NoSQL?
 
 Alex:
+- python scraper
+    - pip install requests
+    - pip install requests-html
+    - pip install lxml
+    
 - express JS setup (MDN guide)
 - template engines
 - baseline website
