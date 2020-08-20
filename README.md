@@ -27,10 +27,17 @@ Alex:
     https://sites.google.com/a/chromium.org/chromedriver/downloads
 
 
-Driver:
-- Download chromedriver (my local version is 84)
-- Extract to /usr/local/bin 
-    - May need to allow it inside Security and Privacy
+Scraper:
+    - Utilizes python3 and virtual environment
+        - https://docs.python.org/3/library/venv.html
+    - pip install selenium
+    - pip install beautifulsoup4
+    - Driver:
+        - Download chromedriver (my local version is 84)
+        - Extract to /usr/local/bin 
+            - May need to allow it inside Security and Privacy
+
+
     
 - express JS setup (MDN guide)
 - template engines
