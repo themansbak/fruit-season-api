@@ -1,0 +1,27 @@
+{
+  "name": "seasonal-fruits",
+  "version": "1.0.0",
+  "description": "Displays season fruits based on US regions",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/themansbak/seasonal-fruits.git"
+  },
+  "keywords": [
+    "Groceries",
+    "Fruits"
+  ],
+  "author": "Alex Man && Mark Vong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/themansbak/seasonal-fruits/issues"
+  },
+  "homepage": "https://github.com/themansbak/seasonal-fruits#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.7"
+  }
+}

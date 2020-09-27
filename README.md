@@ -34,6 +34,9 @@ Scraper:
         http://theautomatic.net/2019/01/19/scraping-data-from-javascript-webpage-python/
         https://sites.google.com/a/chromium.org/chromedriver/downloads
 
+Server:
+    - npm init
+    
 
     
 - express JS setup (MDN guide)
