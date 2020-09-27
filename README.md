@@ -11,6 +11,10 @@ Tasks:
 Mark:
 
 Alex:
+- database setup script
+    - creates db if not existent
+    - parses html
+        - updates db
 - data and storage format
 - setup MongoDB
 - deploy MongoDB
