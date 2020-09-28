@@ -10,10 +10,24 @@ mongoose.connect(process.env.MONGO_URI, {
 
 app.use(logger);
 
+const seasonSchema = mongoose.Schema({
+    season: { type: String, required: true },
+    fruits: [String]
+});
+
+const stateSchema = mongoose.Schema({
+    state: { type: String, required: true },
+    seasons: { type: [seasonSchema] }
+});
+
 app.get('/', (req, res) => {
     var msg = 'Base URL';
     console.log(msg);
     res.send(msg)
+});
+
+app.put('/init_data', (req, res) => {
+    
 });
 
 app.listen(3000, () => {
