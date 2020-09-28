@@ -1,0 +1,14 @@
+{
+    "months": [
+        "January", 
+        "February"
+    ],
+    "period_prefix": [
+        "Early",
+        "Late"
+    ],
+    "states": [
+        "Alaska", 
+        "Alabama"
+    ]
+}
