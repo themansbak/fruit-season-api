@@ -1,23 +1,13 @@
-ExpressJS website that grabs your current location+season and displays what fruits are in season
-- all server-side
-- template engines
-- docker (packaging tool for machine setup)
-
-Express setup:
-- https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs
+Description:
+- ExpressJS website that grabs your current location+season and displays what fruits are in season
 
 Tasks:
 
 Mark:
 
 Alex:
-- database setup script
-    - creates db if not existent
-    - parses html
-        - updates db
-- data and storage format
-- setup MongoDB
-- deploy MongoDB
+- complete seasonal selection endpoints
+- deploy server
 
 Scraper:
 - Utilizes python3 and virtual environment
