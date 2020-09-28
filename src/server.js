@@ -8,26 +8,34 @@ mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true, useUnifiedTopology: true 
 });
 
-app.use(logger);
-
 const seasonSchema = mongoose.Schema({
     season: { type: String, required: true },
     fruits: [String]
 });
+var Season = mongoose.model('Season', seasonSchema);
 
 const stateSchema = mongoose.Schema({
     state: { type: String, required: true },
     seasons: { type: [seasonSchema] }
 });
+var State = mongoose.model('State', stateSchema);
+
+app.use(logger);
 
 app.get('/', (req, res) => {
     var msg = 'Base URL';
-    console.log(msg);
-    res.send(msg)
+    res.send(msg);
 });
 
-app.put('/init_data', (req, res) => {
-    
+app.get('/all', (req, res) => {
+    State.find({}, (err, docs) => {
+        if (err) res.send('Error: 4040 - ', err);
+        res.send(docs);
+    });
+});
+
+app.get('/:state/:season', (req, res) => {
+    State.find
 });
 
 app.listen(3000, () => {

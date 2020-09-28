@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { exit } = require('process');
 
 process.env.MONGO_URI = 
-    'mongodb+srv://admin:adminpw@seasonal-fruits-cluster.pubnq.mongodb.net/<dbname>?retryWrites=true&w=majority';
+    'mongodb+srv://[USER]:[PASSWORD]@seasonal-fruits-cluster.pubnq.mongodb.net/<dbname>?retryWrites=true&w=majority';
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true, useUnifiedTopology: true 
 });    
@@ -55,4 +55,3 @@ function updateDB() {
 }
 
 updateDB();
-exit();
