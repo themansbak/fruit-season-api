@@ -1,0 +1,115 @@
+$primary-color: #E6EBE0;
+$secondary-color: #679436;
+$tertiary-color: #457EAC;
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: $primary-color;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: $primary-color;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #3D2A29;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #181110;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  font-family: verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: $secondary-color;
+  height: 100%;
+}
+
+header {
+  width: 100%;
+}
+
+h1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: $secondary-color;
+  color:  #051824;
+  .icon {
+    color: #3D2A29;
+    margin: 0 1rem 0 0;
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #051824;
+  #footer-icon {
+    color: #3D2A29;
+  }
+  background: $secondary-color;
+  width: 100%;
+  padding: 0.3rem;
+  font-size: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+#footer-text {
+  
+  .portfolio-link  {
+    text-decoration: none;
+    color:#3D2A29;
+    font-weight: bold;
+  }
+  
+  .portfolio-link:hover {
+    text-decoration: none;
+    color:#051824;
+  }
+}
+
+
+.bold {
+  font-weight: bold;
+}
+
+@media(max-width:500px) {
+  .App {
+    height: auto;
+  }
+
+  #footer-text {
+    font-size: 13px;
+  }
+}
