@@ -1,9 +1,8 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
 const { exit } = require('process');
+require('dotenv').config();
 
-process.env.MONGO_URI = 
-    'mongodb+srv://[USER]:[PASSWORD]@seasonal-fruits-cluster.pubnq.mongodb.net/<dbname>?retryWrites=true&w=majority';
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true, useUnifiedTopology: true 
 });    
@@ -26,7 +25,7 @@ function readFile() {
     return seasonalFruitsData;
 }
 
-function updateDB() {
+function updateDB(callback) {
     var scrapedData = readFile();
     var statesArray = [];
     for (const stateName in scrapedData) {
@@ -51,7 +50,9 @@ function updateDB() {
     State.insertMany(statesArray, (err, docs) => {
         if (err) console.log(err);
         else console.log(docs);
-    })
+    });
+    callback();
 }
 
-updateDB();
+updateDB(exit);
+

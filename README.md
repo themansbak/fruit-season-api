@@ -8,6 +8,8 @@ Mark:
 Alex:
 - complete seasonal selection endpoints
 - deploy server
+- modularize schemas and documents?
+- optimize data storage of db_setup iterations
 
 Scraper:
 - Utilizes python3 and virtual environment
@@ -26,6 +28,7 @@ Scraper:
 
 Server:
 - npm init
+- npm install dotenv --save
 - npm install express --save
 - npm install mongoose
 
