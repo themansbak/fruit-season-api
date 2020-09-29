@@ -42,8 +42,13 @@ def main():
     for state in configs['states']:
         if state not in data:
             data[state] = {}
-            select = Select(browser.find_element_by_id('sfg-state'))
-            time.sleep(load_delay)
+            try:
+                select = await Select(browser.find_element_by_id('sfg-state'))
+            except Exception as e:
+                print('Error occurred in parsing: {:s}'.format(e))
+                browser.quit()
+                return
+            
             select.select_by_visible_text(state)
             for month in configs['months']:
                 for prefix in configs['period_prefix']:
