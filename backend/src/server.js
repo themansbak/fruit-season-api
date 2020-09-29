@@ -9,11 +9,20 @@ mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true, useUnifiedTopology: true 
 });
 
+const stateNameSchema = mongoose.Schema({
+    stateName: { type: String, required: true }
+});
+var StateName = mongoose.model('StateName', stateNameSchema);
+
+const seasonNameSchema = mongoose.Schema({
+    seasonName: { type: String, required: true }
+});
+var SeasonName = mongoose.model('SeasonName', seasonNameSchema);
+
 const seasonSchema = mongoose.Schema({
     season: { type: String, required: true },
     fruits: [String]
 });
-var Season = mongoose.model('Season', seasonSchema);
 
 const stateSchema = mongoose.Schema({
     state: { type: String, required: true },
@@ -43,7 +52,7 @@ app.get('/:state/all', (req, res) => {
     });
 });
 
-app.get('/:state/:season', (req, res, next) => { // e.g. /California/Early%20July
+app.get('/:state/:season', (req, res, next) => {
     let seasonParam = lib.parseURL(req.params.season);
     console.log('State: ' + req.params.state + ', Season: ' + seasonParam);
     State.findOne({ state: req.params.state }, (err, state) => {
@@ -52,8 +61,23 @@ app.get('/:state/:season', (req, res, next) => { // e.g. /California/Early%20Jul
         state.seasons.forEach((seasonDoc) => {
             if (seasonDoc.season === seasonParam) {
                 res.json(seasonDoc); // send the entire document
+                next();
             }
         });
+    });
+});
+
+app.get('/states', (req, res) => {
+    StateName.find({ }, (err, stateNames) => {
+        if (err) res.send('Error: 500 - ', err);
+        res.json(stateNames);
+    });
+});
+
+app.get('/seasons', (req, res) => {
+    SeasonName.find({ }, (err, seasonNames) => {
+        if (err) res.send('Error: 500 - ', err);
+        res.json(seasonNames);
     });
 });
 
