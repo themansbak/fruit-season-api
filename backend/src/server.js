@@ -33,6 +33,7 @@ app.get('/:state/all', (req, res) => {
 });
 
 app.get('/:state/:season', (req, res, next) => {
+    console.log(req.params.season);
     let seasonParam = lib.parseURL(req.params.season);
     console.log('State: ' + req.params.state + ', Season: ' + seasonParam);
     db.State.findOne({ state: req.params.state }, (err, state) => {
