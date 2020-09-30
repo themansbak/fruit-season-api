@@ -1,9 +1,11 @@
-const url_re = /\%20/;
+const SERVER_PORT = 3001;
+const URL_RE = /\%20/;
 
 function parseURL(url) {
-    return url.replace(url_re, ' ');
+    return url.replace(URL_RE, ' ');
 }
 
 module.exports = {
-    parseURL
+    parseURL,
+    SERVER_PORT
 }
