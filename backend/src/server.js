@@ -1,6 +1,7 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const lib = require('./lib');
+const express   = require('express');
+const mongoose  = require('mongoose');
+const lib       = require('./lib');
+const db        = require('./db');
 require('dotenv').config();
 
 const app = express();
@@ -9,36 +10,15 @@ mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true, useUnifiedTopology: true 
 });
 
-const stateNameSchema = mongoose.Schema({
-    stateName: { type: String, required: true }
-});
-var StateName = mongoose.model('StateName', stateNameSchema);
-
-const seasonNameSchema = mongoose.Schema({
-    seasonName: { type: String, required: true }
-});
-var SeasonName = mongoose.model('SeasonName', seasonNameSchema);
-
-const seasonSchema = mongoose.Schema({
-    season: { type: String, required: true },
-    fruits: [String]
-});
-
-const stateSchema = mongoose.Schema({
-    state: { type: String, required: true },
-    seasons: { type: [seasonSchema] }
-});
-var State = mongoose.model('State', stateSchema);
-
 app.use(logger);
 
 app.get('/', (req, res) => {
-    var msg = 'Base URL';
+    let msg = 'Base URL';
     res.send(msg);
 });
 
 app.get('/all', (req, res) => {
-    State.find({}, (err, docs) => {
+    db.State.find({}, (err, docs) => {
         if (err) res.send('Error: 404 - ', err);
         res.json(docs);
     });
@@ -46,7 +26,7 @@ app.get('/all', (req, res) => {
 
 app.get('/:state/all', (req, res) => {
     console.log('State: ' + req.params.state);
-    State.find({ state: req.params.state }, (err, state) => {
+    db.State.find({ state: req.params.state }, (err, state) => {
         if (err) res.send('Error: 500 - ', err);
         res.json(state);
     });
@@ -55,7 +35,7 @@ app.get('/:state/all', (req, res) => {
 app.get('/:state/:season', (req, res, next) => {
     let seasonParam = lib.parseURL(req.params.season);
     console.log('State: ' + req.params.state + ', Season: ' + seasonParam);
-    State.findOne({ state: req.params.state }, (err, state) => {
+    db.State.findOne({ state: req.params.state }, (err, state) => {
         if (err) res.send('Error: 500 - ', err);
         // need way to iterate and find the specified season
         state.seasons.forEach((seasonDoc) => {
@@ -68,21 +48,21 @@ app.get('/:state/:season', (req, res, next) => {
 });
 
 app.get('/states', (req, res) => {
-    StateName.find({ }, (err, stateNames) => {
+    db.StateName.find({ }, (err, stateNames) => {
         if (err) res.send('Error: 500 - ', err);
         res.json(stateNames);
     });
 });
 
 app.get('/seasons', (req, res) => {
-    SeasonName.find({ }, (err, seasonNames) => {
+    db.SeasonName.find({ }, (err, seasonNames) => {
         if (err) res.send('Error: 500 - ', err);
         res.json(seasonNames);
     });
 });
 
-app.listen(3000, () => {
-    console.log('Listening on port 3000');
+app.listen(lib.SERVER_PORT, () => {
+    console.log('Listening on port ' + lib.SERVER_PORT);
 });
 
 
