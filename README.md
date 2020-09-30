@@ -2,14 +2,27 @@ Description:
 - ExpressJS website that grabs your current location+season and displays what fruits are in season
 
 Tasks:
+- Mark:
 
-Mark:
+- Alex:
+    - deploy server
+    - optimize data storage of db_setup iterations
 
-Alex:
-- complete seasonal selection endpoints
-- deploy server
-- modularize schemas and documents?
-- optimize data storage of db_setup iterations
+Server:
+- npm init
+- npm install dotenv --save
+- npm install express --save
+- npm install mongoose
+- node server.js
+
+Frontend:
+- npm init
+- npm install
+- npm start
+
+Deployment:
+- https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/Publishing_your_website
+- https://www.codecademy.com/learn/deploy-a-website
 
 Scraper:
 - Utilizes python3 and virtual environment
@@ -25,13 +38,3 @@ Scraper:
     https://stackoverflow.com/questions/26393231/using-python-requests-with-javascript-pages
     http://theautomatic.net/2019/01/19/scraping-data-from-javascript-webpage-python/
     https://sites.google.com/a/chromium.org/chromedriver/downloads
-
-Server:
-- npm init
-- npm install dotenv --save
-- npm install express --save
-- npm install mongoose
-
-Deployment:
-- https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/Publishing_your_website
-- https://www.codecademy.com/learn/deploy-a-website
