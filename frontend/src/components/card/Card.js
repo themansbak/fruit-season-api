@@ -4,12 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSeedling } from "@fortawesome/free-solid-svg-icons";
 
 export const Card = (props) => {
-  let name = props.produce;
-  let picture = props.produce.picture;
-  let description = props.produce.description;
-
+  let name = props.obj;
+  let picture = props.obj.picture;
+  let description = props.obj.description;
   return (
-    <div id="card-div">
+    <li id="card-div">
       <h4 id="card-title">
         <FontAwesomeIcon icon={faSeedling} className="card-icon" /> {name}
       </h4>
@@ -27,6 +26,6 @@ export const Card = (props) => {
           ? description
           : "This is a default description. More information to come for this particular card. Thank you for your patience."}
       </p>
-    </div>
+    </li>
   );
 };
