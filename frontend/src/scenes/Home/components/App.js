@@ -35,29 +35,36 @@ export default function App() {
   };
 
   useEffect(() => {
+    state !== "" && season !== ""
+      ? getProduce(setProduce, state, season)
+      : console.log("No data yet.");
+  }, [state, season]);
+
+  useEffect(() => {
     getSeasons(setSeasons, setSeason);
     getStates(setStates, setState);
-    getProduce(setProduce, "Alaska", "Early January");
   }, []);
 
   return (
     <div className="App">
       <Header />
-      <SelectContainer
-        seasons={{
-          name: "season",
-          id: "season",
-          changeVal: changeSeason,
-          arr: seasons,
-        }}
-        states={{
-          name: "state",
-          id: "state",
-          changeVal: changeState,
-          arr: states,
-        }}
-      />
-      <CardContainer arr={produce} />
+      <div id="app-body">
+        <SelectContainer
+          seasons={{
+            name: "season",
+            id: "season",
+            changeVal: changeSeason,
+            arr: seasons,
+          }}
+          states={{
+            name: "state",
+            id: "state",
+            changeVal: changeState,
+            arr: states,
+          }}
+        />
+        <CardContainer arr={produce} />
+      </div>
       <Footer />
     </div>
   );
