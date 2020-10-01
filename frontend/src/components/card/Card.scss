@@ -1,28 +1,32 @@
+@import "../styles";
 
 #card-div {
   text-align: center;
   word-wrap: break-word;
-  margin: 0.5rem;
+  padding: 0.5rem;
+  margin: 1rem;
+  color: $secondary-color;
+  background-color: $primary-color;
+  border-radius: 15px;
 
   #card-title {
     font-weight: bold;
-  }
-  
-  #card-img {
-    width: 80%;
-  }
-  
-  #card-description {
     margin: 0.3rem;
   }
 
+  #card-img {
+    width: 80%;
+  }
+
+  #card-description {
+    margin: 0.3rem;
+  }
 }
 
-
-
-
-
-
-
-
-
+#card-div:hover {
+  cursor: pointer;
+  color: $tertiary-color;
+  .card-icon {
+    color: $dark-green;
+  }
+}
