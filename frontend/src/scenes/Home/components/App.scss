@@ -4,6 +4,7 @@ $tertiary-color: #457eac;
 
 html {
   height: 100%;
+  width: 100%;
 }
 
 body {
@@ -12,6 +13,7 @@ body {
   scrollbar-width: none;
   overflow-x: hidden;
   height: 100%;
+  width: 100%;
   margin: 0;
 }
 
@@ -43,6 +45,14 @@ body::-webkit-scrollbar-thumb:hover {
   align-items: center;
   color: $secondary-color;
   height: 100%;
+  width: 100%;
+}
+#app-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 3;
+  width: 100%;
 }
 
 .bold {
