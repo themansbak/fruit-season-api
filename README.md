@@ -8,6 +8,9 @@ Tasks:
     - deploy server
     - optimize data storage of db_setup iterations
 
+Server + Frontend:
+- npm run dev
+
 Server:
 - npm init
 - npm install dotenv --save
