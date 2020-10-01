@@ -35,6 +35,7 @@ export default function App() {
   };
 
   useEffect(() => {
+<<<<<<< HEAD
     state !== "" && season !== ""
       ? getProduce(setProduce, state, season)
       : console.log("No data yet.");
@@ -43,11 +44,17 @@ export default function App() {
   useEffect(() => {
     getSeasons(setSeasons, setSeason);
     getStates(setStates, setState);
+=======
+    getSeasons(setSeasons, setSeason);
+    getStates(setStates, setState);
+    getProduce(setProduce, "Alaska", "Early January");
+>>>>>>> upstream/master
   }, []);
 
   return (
     <div className="App">
       <Header />
+<<<<<<< HEAD
       <div id="app-body">
         <SelectContainer
           seasons={{
@@ -65,6 +72,23 @@ export default function App() {
         />
         <CardContainer arr={produce} />
       </div>
+=======
+      <SelectContainer
+        seasons={{
+          name: "season",
+          id: "season",
+          changeVal: changeSeason,
+          arr: seasons,
+        }}
+        states={{
+          name: "state",
+          id: "state",
+          changeVal: changeState,
+          arr: states,
+        }}
+      />
+      <CardContainer arr={produce} />
+>>>>>>> upstream/master
       <Footer />
     </div>
   );
