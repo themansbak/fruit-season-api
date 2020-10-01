@@ -14,8 +14,10 @@ export const Card = (props) => {
   );
   useEffect(() => {
     // console.log(name);
-    console.log(process.env.REACT_APP_PIXA_API_KEY);
-    const url = `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXA_API_KEY}&q=${name}`;
+    // console.log(process.env.REACT_APP_PIXA_API_KEY);
+    const url = `https://pixabay.com/api/?key=${
+      process.env.REACT_APP_PIXA_API_KEY
+    }&q=${name}&safesearch=${true}`;
 
     // console.log(url);
     fetch(url)
