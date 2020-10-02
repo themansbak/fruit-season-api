@@ -2,7 +2,7 @@ import React from "react";
 import "./CardContainer.scss";
 import { Card } from "../Card/Card";
 
-let imageURLs = new Set();
+// let imageURLs = new Set();
 
 export const CardContainer = (props) => {
   return (

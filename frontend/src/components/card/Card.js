@@ -5,9 +5,7 @@ import { faSeedling } from "@fortawesome/free-solid-svg-icons";
 
 export const Card = (props) => {
   let name = props.obj;
-  let picture = props.obj.picture
-    ? props.obj.picture
-    : "https://i.pinimg.com/originals/32/e2/41/32e2413585f1d2e0333c7dee3c4808bf.jpg";
+  // let picture = props.obj.picture ? props.obj.picture : "https://i.pinimg.com/originals/32/e2/41/32e2413585f1d2e0333c7dee3c4808bf.jpg";
   let description = props.obj.description;
   let [image, setImage] = useState(
     "https://i.pinimg.com/originals/32/e2/41/32e2413585f1d2e0333c7dee3c4808bf.jpg"
