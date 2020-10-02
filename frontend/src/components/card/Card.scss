@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   color: $secondary-color;
   background-color: $primary-color;
   border-radius: 15px;
@@ -14,9 +14,11 @@
 
   #img-wrapper {
     width: 90%;
+    border-radius: 15px;
     // border: 1px red solid;
     background-color: $secondary-color;
     // height: 11rem;
+
     height: 250px;
   }
   #card-title {
@@ -28,17 +30,32 @@
   #card-img {
     width: 100%;
     height: 100%;
+    border-radius: 15px;
     object-fit: cover;
   }
-
+  // #card-desc-wrapper {
+  //   background-color: $secondary-color;
+  //   padding: 0;
+  //   margin: 0;
+  //   border: 1px blue solid;
+  //   // opacity: 0.4;
+  // }
   #card-description {
+    background-color: rgba($tertiary-color, 0.1);
     margin: 0.7rem;
+    padding: 0.3rem;
+    width: 95%;
+    height: 10em;
+    overflow: scroll;
+    border-radius: 15px;
+    // border: 1px red solid;
   }
 }
 
 #card-div:hover {
   cursor: pointer;
   color: $tertiary-color;
+  // font-weight: bold;
   .card-icon {
     color: $dark-green;
   }
