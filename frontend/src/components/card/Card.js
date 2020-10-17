@@ -1,26 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Card.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSeedling } from "@fortawesome/free-solid-svg-icons";
 
-export const Card = (props) => {
+export const Card = React.memo((props) => {
   let name = props.obj;
-  let picture = props.obj.picture;
-  let description = props.obj.description;
+  let [description, setDescription] = useState(props.obj.description);
+  let [image, setImage] = useState(
+    "https://i.pinimg.com/originals/32/e2/41/32e2413585f1d2e0333c7dee3c4808bf.jpg"
+  );
+
   return (
     <li id="card-div">
       <h4 id="card-title">
         <FontAwesomeIcon icon={faSeedling} className="card-icon" /> {name}
       </h4>
-      <img
-        src={
-          picture
-            ? picture
-            : "https://i.pinimg.com/originals/32/e2/41/32e2413585f1d2e0333c7dee3c4808bf.jpg"
-        }
-        alt="Img"
-        id="card-img"
-      />
+      <div id="img-wrapper">
+        <img src={image} alt="Img" id="card-img" />{" "}
+      </div>
       <p id="card-description">
         {description
           ? description
@@ -28,4 +25,4 @@ export const Card = (props) => {
       </p>
     </li>
   );
-};
+});

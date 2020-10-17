@@ -1,29 +1,30 @@
 import React from "react";
 import "./Select.scss";
 
-export const Select = (props) => {
+export const Select = React.memo((props) => {
   return (
     <div className="select-div">
-      <label
-        htmlFor={`${props.obj.name}s`}
-        id={`${props.obj.name}s-label`}
+      {/* <label
+        htmlFor={props.list.id}
+        id={`${props.list.id}-label`}
         className="select-label"
       >
-        Select a {props.obj.name}
-      </label>
+        Select a {props.list.title}
+      </label> */}
 
       <select
-        name={`${props.obj.name}s`}
-        id={`${props.obj.id}s`}
-        onChange={props.obj.changeVal}
+        name={`${props.list.id}s`}
+        id={`${props.list.id}s`}
         className="custom-select"
+        onChange={props.list.changeFunc}
       >
-        {props.obj.arr.map((val, idx) => (
-          <option value={val} key={idx}>
-            {val}
+        <option value="">Select a {props.list.title}</option>
+        {props.list.data.map((item) => (
+          <option value={item.id} key={item.id}>
+            {item.name}
           </option>
         ))}
       </select>
     </div>
   );
-};
+});
