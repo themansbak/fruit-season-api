@@ -14,6 +14,9 @@ const statesAdapter = createEntityAdapter({
 
 export const fetchStates = createAsyncThunk("states/fetchStates", async () => {
   const response = await getAllData(ALL_STATES);
+  response.sort((a, b) => {
+    return a["stateName"] < b["stateName"] ? -1 : 1;
+  });
   const newResponse = response.map((state) => {
     return {
       id: state["_id"],
