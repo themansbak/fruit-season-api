@@ -11,7 +11,30 @@ const seasonsAdapter = createEntityAdapter();
 export const fetchSeasons = createAsyncThunk(
   "seasons/fetchSeasons",
   async () => {
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+    const time = ["Early", "Late"];
     const response = await getAllData(ALL_SEASONS);
+    response.sort((a, b) => {
+      const [aA, aB] = a["seasonName"].split(" ");
+      const [bA, bB] = b["seasonName"].split(" ");
+      return (
+        months.indexOf(aB) - months.indexOf(bB) ||
+        time.indexOf(aA) - time.indexOf(bA)
+      );
+    });
     const newResponse = response.map((season) => {
       return {
         id: season["_id"],
