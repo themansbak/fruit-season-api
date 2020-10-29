@@ -29,6 +29,13 @@ Deployment:
 - https://www.codecademy.com/learn/deploy-a-website
 - Heroku:
     - brew install heroku/brew/heroku
+    - touch Procfile
+    - echo "web: npm start" > Procfile
+    - heroku ps:scale web=[#Dynos]
+        - Dynos are basically lightweight containers that run whatever application command process
+        - Start: heroku ps:scale web=1 
+        - Stop: heroku ps:scale web=0
+    - Check # dyno processes: heroku ps
 
 Scraper:
 - Utilizes python3 and virtual environment
