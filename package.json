@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/themansbak/seasonal-fruits#readme",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.4.0",
     "concurrently": "^5.3.0"
   }
 }
