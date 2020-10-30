@@ -4,6 +4,7 @@
   "description": "Displays season fruits based on US regions",
   "main": "index.js",
   "scripts": {
+    "start": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\" ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "install-packages": "npm install && ((cd backend && npm install) & (cd frontend && npm install))",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\" "
