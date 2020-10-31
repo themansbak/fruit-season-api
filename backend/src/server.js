@@ -68,8 +68,10 @@ app.get('/seasons', (req, res) => {
     });
 });
 
-app.listen(process.env.SERVER_PORT, () => {
-    console.log('Listening on port ' + lib.SERVER_PORT);
+const port = process.env.SERVER_PORT || 5000;
+
+app.listen(port, '0.0.0.0', () => {
+    console.log('Listening on port `${port}`');
 });
 
 
