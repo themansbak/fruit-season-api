@@ -2,10 +2,15 @@ Description:
 - ExpressJS website that grabs your current location+season and displays what fruits are in season
 
 Tasks:
+- MAJOR: find way to create proxy for frontend to communicate to backend
+    - server is being hosted by heroku
+    - frontend makes requests to 'localhost:3001'
+        - heroku hosted frontend can't make calls to localhost:3001
+            - assuming this is because the server has a dynamic IP address so it can't access it
+        - find way to request from proper ID
 - Mark:
 
 - Alex:
-    - deploy server
     - optimize data storage of db_setup iterations
 
 Server + Frontend:
