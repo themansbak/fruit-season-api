@@ -9,8 +9,8 @@ const app = express();
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true, useUnifiedTopology: true 
 })
-.then(() => console.log('--- DB connected! ---')
-.catch(err => console.log(err)));
+.then(() => console.log('--- DB connected! ---'))
+.catch(err => console.log(err));
 
 app.use(logger);
 /* [Mark]: Added for CORS policy error message */
