@@ -1,5 +1,5 @@
 import { getData, getRes } from "./calls";
-export const BASE_URI = `${window.location.protocol}//${window.location.hostname}:5000` || "http://localhost:5000";
+export const BASE_URI = "http://localhost:5000";
 export const ALL_STATES = `${BASE_URI}/states`;
 export const ALL_SEASONS = `${BASE_URI}/seasons`;
 const seasons_path = "/seasons";
