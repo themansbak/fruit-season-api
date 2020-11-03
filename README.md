@@ -12,6 +12,12 @@ Tasks:
 
 - Alex:
     - optimize data storage of db_setup iterations
+    Struggles:
+    - issue deploying both frontend+backend servers to one heroku dyno
+        - heroku dyno uses one specified port for both servers
+        - tried adding a proxy key to the frontend package.json to use as endpoing for backend
+            - didn't work
+        - 
 
 Server + Frontend:
 - npm run dev
