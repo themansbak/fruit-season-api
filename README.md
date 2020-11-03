@@ -2,6 +2,8 @@ Description:
 - ExpressJS website that grabs your current location+season and displays what fruits are in season
 - UI repository: https://github.com/themansbak/fruit-season-ui
     - Separation of frontend and backend
+- API endpoint: https://stormy-reef-43017.herokuapp.com/
+- UI: https://sheltered-hollows-41861.herokuapp.com/
 
 Tasks:
 - Mark:
