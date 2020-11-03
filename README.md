@@ -1,13 +1,9 @@
 Description:
 - ExpressJS website that grabs your current location+season and displays what fruits are in season
+- UI repository: https://github.com/themansbak/fruit-season-ui
+    - Separation of frontend and backend
 
 Tasks:
-- MAJOR: find way to create proxy for frontend to communicate to backend
-    - server is being hosted by heroku
-    - frontend makes requests to 'localhost:3001'
-        - heroku hosted frontend can't make calls to localhost:3001
-            - assuming this is because the server has a dynamic IP address so it can't access it
-        - find way to request from proper ID
 - Mark:
 
 - Alex:
@@ -17,9 +13,9 @@ Tasks:
         - heroku dyno uses one specified port for both servers
         - tried adding a proxy key to the frontend package.json to use as endpoing for backend
             - didn't work
-        - 
+        - now going to separate into two repos and run both on separate heroku instances
 
-Server + Frontend:
+Server:
 - npm run dev
 
 Server:
@@ -29,11 +25,6 @@ Server:
 - npm install mongoose
 - dev:  npm run dev
 - start: npm start
-
-Frontend:
-- npm init
-- npm install
-- npm start
 
 Deployment:
 - https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/Publishing_your_website
