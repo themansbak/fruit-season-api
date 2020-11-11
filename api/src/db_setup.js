@@ -8,15 +8,24 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 .then(() => {
     console.log(`connected to ${process.env.MONGO_URI}`);
-    updateSeasonNamesData();
+    // updateSeasonNamesData();
     // updateStateNamesData();
-    // updateStateData(() => console.log('finished'));
+    updateStateData(() => console.log('finished'));
 })
 .catch(err => console.log(`error occurred: ${err}`));
 
+const seasonFilePath = 'data/modeled_data.json';
+const fruitFilePath = 'data/fruit_list.json';
+
+const fruitSchema = mongoose.Schema({
+    name: String,
+    description: String
+});
+var Fruit = mongoose.model('Fruit', fruitSchema);
+
 const seasonSchema = mongoose.Schema({
     season: { type: String, required: true },
-    fruits: [String]
+    fruits: { type: [fruitSchema] }
 });
 var Season = mongoose.model('Season', seasonSchema);
 
@@ -36,22 +45,32 @@ const seasonNameSchema = mongoose.Schema({
 });
 var SeasonName = mongoose.model('SeasonName', seasonNameSchema);
 
-function readFile() {
-    var rawdata = fs.readFileSync('data/modeled_data.json');
+function readFile(path) {
+    var rawdata = fs.readFileSync(path);
     var seasonalFruitsData = JSON.parse(rawdata);
     return seasonalFruitsData;
 }
 
 function updateStateData(callback) {
-    var scrapedData = readFile();
+    var scrapedData = readFile(seasonFilePath);
+    var fruitData = readFile(fruitFilePath);
     var statesArray = [];
     for (const stateName in scrapedData) {
         var stateData = scrapedData[stateName];
         var seasonsArray = [];
         stateData['seasons'].forEach((seasonData) => {
+            var fruitDocList = [];
+            seasonData['fruits'].forEach(fruit => {
+                var fruitDoc = new Fruit({
+                    name: fruit,
+                    description: fruitData[fruit.toLowerCase()]
+                });
+                fruitDocList.push(fruitDoc);
+            });
+            // console.dir(fruitDocList);
             var seasonDoc = new Season({
                 season: seasonData['season'],
-                fruits: seasonData['fruits']
+                fruits: fruitDocList
             });
             seasonsArray.push(seasonDoc);
         });
@@ -61,9 +80,9 @@ function updateStateData(callback) {
             seasons: seasonsArray
         });
         statesArray.push(stateDoc);
-        console.log(stateDoc.seasons);
+        // console.log(stateDoc.seasons);
     }
-    console.log(statesArray);
+    console.dir(statesArray);
     State.insertMany(statesArray, (err, docs) => {
         if (err) console.log(err);
         else console.log(docs);

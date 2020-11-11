@@ -44,8 +44,11 @@ Deployment:
 Scraper:
 - Utilizes python3 and virtual environment
     - https://docs.python.org/3/library/venv.html
+- python3  -m ensurepip --default-pip
 - pip install selenium
 - pip install beautifulsoup4
+- pip install webdriver-manager
+- pip install lxml
 - Driver:
     - Download chromedriver (my local version is 84)
     - Extract to /usr/local/bin 
