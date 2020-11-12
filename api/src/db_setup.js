@@ -60,6 +60,16 @@ function updateStateData(callback) {
     callback();
 }
 
+function updateFruitData() {
+    var fruitData = readFile(fruitFilePath);
+    for (const fruit in fruitData) {
+        let fruitDoc = new db.Fruit({
+            name: fruit['name'],
+            description: fruit['description']
+        });
+    }
+}
+
 function updateStateNamesData() {
     var scrapedData = readFile();
     var statesNameArray = [];
