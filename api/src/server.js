@@ -70,6 +70,9 @@ app.get('/seasons', (req, res) => {
     });
 });
 
+app.get('*', (req, res) => {
+    res.json('404: Page not found!');
+})
 const port = process.env.PORT || 3001;
 
 app.listen(port, '0.0.0.0', () => {
